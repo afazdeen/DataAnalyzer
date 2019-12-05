@@ -107,4 +107,6 @@ add_executable(LogAnalyzer
         TypeDefs.h
         Utils.cpp
         Utils.h
-        Value.h LDEL/ELLogFileFilter.cpp LDEL/ELLogFileFilter.h)
+        Value.h
+        LDEL/ELLogFileFilter.cpp
+        LDEL/ELLogFileFilter.h)

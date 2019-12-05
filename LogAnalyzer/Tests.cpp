@@ -100,12 +100,14 @@ void Tests::RunLDELtest1() {
     if(stringFlag =="txt")
     {
         ELInterpretter intp;
-        intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
+        intp.EvaluateCase("../tests/LDEL_test1/norwayDefs.txt");
     }
    else if(stringFlag =="json")
     {
         ELInterpretterJSON intp;
-        intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
+        intp.EvaluateCase("../tests/LDEL_test1/norwayDefs.txt");
     }
    else
     {

@@ -2,7 +2,6 @@
 #include <string>
 #include <iostream>
 #include "CPlusPlusEntry.h"
-//#include "D:/vcpkg/vcpkg/installed/x86-windows/include/json/version.h"
 
 using namespace std;
 

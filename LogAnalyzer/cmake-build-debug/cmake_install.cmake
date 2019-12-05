@@ -1,4 +1,4 @@
-# Install script for directory: D:/Data-Extractor-Final/log-data-extracter/LogAnalyzer
+# Install script for directory: D:/99xProjects/Data-Extractor-Final/DataAnalyzer/LogAnalyzer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Data-Extractor-Final/log-data-extracter/LogAnalyzer/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/99xProjects/Data-Extractor-Final/DataAnalyzer/LogAnalyzer/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
