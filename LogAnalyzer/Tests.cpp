@@ -97,17 +97,19 @@ void Tests::RunLDELtest1() {
         c = ::tolower(c);
     });
 
+    //Enter the path to the log file and the script file in the Defs.txt file under the fields LDEL_LOG_FILE and LDEL_SCRIPT_FILE respectively.
+
     if(stringFlag =="txt")
     {
         ELInterpretter intp;
-        //intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
-        intp.EvaluateCase("../tests/LDEL_test1/norwayDefs.txt");
+        intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/norwayDefs.txt");
     }
    else if(stringFlag =="json")
     {
         ELInterpretterJSON intp;
-        //intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
-        intp.EvaluateCase("../tests/LDEL_test1/norwayDefs.txt");
+        intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/norwayDefs.txt");
     }
    else
     {
@@ -115,7 +117,6 @@ void Tests::RunLDELtest1() {
         exit(1);
     }
 }
-
 
 void Tests::RunLDELtest2() {
     ELInterpretter intp;

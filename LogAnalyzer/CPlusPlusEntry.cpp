@@ -263,7 +263,6 @@ void CPlusPlusEntry::RunMenu()
 }
 
 void CPlusPlusEntry::RunDefault() {
-    //RunUnitTest3();
     RunLDELtest1();
 }
 
