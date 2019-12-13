@@ -87,7 +87,7 @@ DEF	IS_NOT_NULL					IsNotNull
 DEF	BOOL_AND					And
 DEF	BOOL_OR						Or
 
-DEF	LDEL_SCRIPT_FILE				../tests/LDEL_test1/norwaydata/norwayscript.txt
+DEF	LDEL_SCRIPT_FILE				../tests/LDEL_test1/testdata/testscript.txt
 DEF	LDEL_LOG_FILE					../tests/LDEL_test1/testdata/testlog.txt
 DEF	LDEL_ASSIGNMENT					=
 DEF	LDEL_VARIABLE_PREFIX				$
