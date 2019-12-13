@@ -102,14 +102,18 @@ void Tests::RunLDELtest1() {
     if(stringFlag =="txt")
     {
         ELInterpretter intp;
-        intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
-        //intp.EvaluateCase("../tests/LDEL_test1/norwayDefs.txt");
+        intp.EvaluateCase("../tests/LDEL_test1/logdata/Defs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/norwaydata/norwayDefs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/testdata/testDefs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/easy2umobilelog/easy2uDefs.txt");
     }
    else if(stringFlag =="json")
     {
         ELInterpretterJSON intp;
-        intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
-        //intp.EvaluateCase("../tests/LDEL_test1/norwayDefs.txt");
+        intp.EvaluateCase("../tests/LDEL_test1/logdata/Defs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/norwaydata/norwayDefs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/testdata/testDefs.txt");
+        //intp.EvaluateCase("../tests/LDEL_test1/easy2umobilelog/easy2uDefs.txt");
     }
    else
     {

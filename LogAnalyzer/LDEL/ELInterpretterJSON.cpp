@@ -40,8 +40,11 @@ ELInterpretterJSONResult* ELInterpretterJSON::EvaluateCase(MSTRING sDefFile) {
 void ELInterpretterJSON::PrintInterpretterResult(ELInterpretterJSONResult *ir) {
     MOFSTREAM jsonfile;
     int count =1;
-    jsonfile.open("../tests/LDEL_test1/resultJSON.json", std::ios::out | std::ios::trunc);
-    //jsonfile.open("../tests/LDEL_test1/norwayresultJSON.json", std::ios::out | std::ios::trunc);
+    jsonfile.open("../tests/LDEL_test1/logdata/resultJSON.json", std::ios::out | std::ios::trunc);
+    //jsonfile.open("../tests/LDEL_test1/norwaydata/norwayresultJSON.json", std::ios::out | std::ios::trunc);
+    //jsonfile.open("../tests/LDEL_test1/testdata/testresultJSON.json", std::ios::out | std::ios::trunc);
+    //jsonfile.open("../tests/LDEL_test1/easy2umobilelog/easy2uresultJSON.json", std::ios::out | std::ios::trunc);
+
     PNODE curr = ir->startNode;
     jsonfile<<_MSTR([{);
                         while (curr) {

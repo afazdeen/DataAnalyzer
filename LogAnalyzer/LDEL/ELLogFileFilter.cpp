@@ -11,8 +11,8 @@ void ELLogFileFilter::FilterLogFile()
     MFSTREAM inputFile;
     MFSTREAM outputFile;
 
-    inputFile.open("../tests/LDEL_test1/log.txt",ios::in);
-    outputFile.open("../tests/LDEL_test1/filteredLog.txt",ios::out);
+    inputFile.open("../tests/LDEL_test1/logdata/log.txt",ios::in);
+    outputFile.open("../tests/LDEL_test1/logdata/filteredLog.txt",ios::out);
 
     string currentLine;
     string previousLine="";
