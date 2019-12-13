@@ -1,2 +1,2 @@
-# Removes testignore
-LogAnalyzer/tests/LDEL_test1/testignore.txt
+# Removes logfiles
+LogAnalyzer/tests/LDEL_test1/easy2umobilelog/
