@@ -27,8 +27,6 @@ add_executable(LogAnalyzer
         LDEL/ELInterpretedElement.h
         LDEL/ELInterpretter.cpp
         LDEL/ELInterpretter.h
-        LDEL/ELInterpretterJSON.cpp
-        LDEL/ELInterpretterJSON.h
         LDEL/ELJSON.cpp
         LDEL/ELJSON.h
         LDEL/ELLineParser.cpp
@@ -43,8 +41,6 @@ add_executable(LogAnalyzer
         LDEL/ELListParser.h
         LDEL/ELNodeWrapper.cpp
         LDEL/ELNodeWrapper.h
-        LDEL/ELNodeWrapperJSON.cpp
-        LDEL/ELNodeWrapperJSON.h
         LDEL/ELNumber.cpp
         LDEL/ELNumber.h
         LDEL/ELParser.cpp

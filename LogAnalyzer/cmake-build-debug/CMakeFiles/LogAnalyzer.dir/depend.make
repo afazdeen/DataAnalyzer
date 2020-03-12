@@ -173,6 +173,7 @@ CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../CommonIncludes.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../DefFileReader.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../Defs.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../Entity.h
+CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../LDEL/nlohmann/json.hpp
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../MemMan.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../MetaData.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../Node.h
@@ -187,26 +188,6 @@ CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../LDEL/ELNodeWrapper.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../LDEL/ELParser.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../LDEL/ELParserResult.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.obj: ../LDEL/ELVariable.h
-
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../CommonIncludes.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../DefFileReader.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../Defs.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../Entity.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/nlohmann/json.hpp
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../MemMan.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../MetaData.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../Node.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../TypeDefs.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../Utils.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELBlockElement.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELBlockTemplate.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELInterpretterJSON.cpp
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELInterpretterJSON.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELLineTemplate.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELNodeWrapperJSON.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELParser.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELParserResult.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj: ../LDEL/ELVariable.h
 
 CMakeFiles/LogAnalyzer.dir/LDEL/ELJSON.cpp.obj: ../CommonIncludes.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELJSON.cpp.obj: ../Defs.h
@@ -280,23 +261,13 @@ CMakeFiles/LogAnalyzer.dir/LDEL/ELLogFileFilter.cpp.obj: ../LDEL/ELLogFileFilter
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../CommonIncludes.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../Defs.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../Entity.h
+CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../LDEL/nlohmann/json.hpp
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../MemMan.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../Node.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../TypeDefs.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../LDEL/ELNodeWrapper.cpp
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../LDEL/ELNodeWrapper.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.obj: ../LDEL/ELVariable.h
-
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../CommonIncludes.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../Defs.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../Entity.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../LDEL/nlohmann/json.hpp
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../MemMan.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../Node.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../TypeDefs.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../LDEL/ELNodeWrapperJSON.cpp
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../LDEL/ELNodeWrapperJSON.h
-CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj: ../LDEL/ELVariable.h
 
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNumber.cpp.obj: ../CommonIncludes.h
 CMakeFiles/LogAnalyzer.dir/LDEL/ELNumber.cpp.obj: ../Defs.h
@@ -454,7 +425,6 @@ CMakeFiles/LogAnalyzer.dir/StringOperations.cpp.obj: ../StringOperations.h
 CMakeFiles/LogAnalyzer.dir/StringOperations.cpp.obj: ../TypeDefs.h
 
 CMakeFiles/LogAnalyzer.dir/Tests.cpp.obj: ../LDEL/ELInterpretter.h
-CMakeFiles/LogAnalyzer.dir/Tests.cpp.obj: ../LDEL/ELInterpretterJSON.h
 CMakeFiles/LogAnalyzer.dir/Tests.cpp.obj: ../CommonIncludes.h
 CMakeFiles/LogAnalyzer.dir/Tests.cpp.obj: ../DefFileReader.h
 CMakeFiles/LogAnalyzer.dir/Tests.cpp.obj: ../Defs.h
