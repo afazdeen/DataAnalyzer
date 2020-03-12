@@ -7,6 +7,7 @@
 //
 
 #include "ELInterpretter.h"
+#include "ELBlockElement.h"
 #include "DefFileReader.h"
 #include "MetaData.h"
 #include "ELParser.h"
@@ -15,11 +16,15 @@
 #include "ELBlockTemplate.h"
 #include "MemMan.h"
 #include "ELNodeWrapper.h"
-#include "ELBlockElement.h"
 #include "Utils.h"
 #include <iostream>
+#include <nlohmann/json.hpp>
+#include <regex>
+
+
 
 using namespace std;
+using json = nlohmann::json;
 
 ELInterpretterResult::ELInterpretterResult() {
     startNode = NULL;
@@ -33,7 +38,6 @@ ELInterpretterResult* ELInterpretter::EvaluateCase(MSTRING sDefFile) {
     ELInterpretterResult *ir = 0;
     MemoryManager::Inst.CreateObject(&ir);
     int start = Utils::getMilliCount();
-    bool sequenceOnlyAtBeginning=false;
     bool succ = p.ProcessScript(md->s_ScriptFile, md, res);
     ir->millisecondsForParsing = Utils::getMilliSpan(start);
 
@@ -47,23 +51,62 @@ ELInterpretterResult* ELInterpretter::EvaluateCase(MSTRING sDefFile) {
 }
 
 void ELInterpretter::PrintInterpretterResult(ELInterpretterResult *ir) {
-    MOFSTREAM file;
-    file.open("../../Files/result.txt", std::ios::out | std::ios::trunc);
-
-    file << _MSTR(Time spent parsing =) << SPACE << ir->millisecondsForParsing << SPACE << _MSTR(ms\n);
-    file << _MSTR(Time spent interpreting =) << SPACE << ir->millisecondsForInterpreting << SPACE << _MSTR(ms\n);
+    //MOFSTREAM jsonfile;
+    //file.open("../tests/LDEL_test1/testresult.txt", std::ios::out | std::ios::trunc);
+    //file << _MSTR(Time spent parsing =) << SPACE << ir->millisecondsForParsing << SPACE << _MSTR(ms\n);
+    //file << _MSTR(Time spent interpreting =) << SPACE << ir->millisecondsForInterpreting << SPACE << _MSTR(ms\n);
+    MOFSTREAM jsonfile;
+    jsonfile.open("../tests/LDEL_test1/logdata/resultJSON.json", std::ios::out | std::ios::trunc);
     PNODE curr = ir->startNode;
-    while (curr) {
-        ELNodeWrapper* wrapper = ELNodeWrapper::mapNodeToWrapper[curr];
-        wrapper->PrintNodeToFile(file);
-        curr = curr->GetRightSibling();
+    int count =1;
+    jsonfile<<_MSTR({);
+                        while (curr) {
+                            ELNodeWrapper* wrapper = ELNodeWrapper::mapNodeToWrapper[curr];
+                            //wrapper->PrintNodeToFile(file);
+                            wrapper->PrintNodeToFile(jsonfile,count);
+                            count++;
+                            if(curr->GetRightSibling())
+                            {
+                                jsonfile <<",";
+                            }
+                            curr = curr->GetRightSibling();
+                        }
+                        jsonfile<<_MSTR(\n);
+                        jsonfile <<_MSTR(});
+    jsonfile.close();
+    //file.close();
+}
+
+bool ELInterpretter::findMultilineJSON(MSTRING sLine){
+    MSTRING stack="";
+    if(sLine.find("{")!=std::string::npos){
+        std::string::iterator ite=sLine.begin();
+        std::string::iterator iteEnd=sLine.end();
+        for(;ite!=iteEnd;++ite){
+            if((*ite) == '{'){
+                stack+=(*ite);
+            }
+            if((*ite)=='}'){
+                stack.pop_back();
+            }
+        }
+        if(stack.length()!=0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
-    file.close();
+    else{
+        return false;
+    }
+
 }
 
 WIDESTRING ELInterpretter::ProcessLinesInFile(MSTRING sLogFile, VEC_ELLINETEMPLATE& vecLineTemplates, ELInterpretterResult *res) {
     MIFSTREAM file(sLogFile.c_str());
     MSTRING sLine;
+    MSTRING nextLine;
     WIDESTRING ret = EMPTY_WIDESTRING;
     res->startNode = NULL;
     PNODE currentNode = res->startNode;
@@ -71,7 +114,15 @@ WIDESTRING ELInterpretter::ProcessLinesInFile(MSTRING sLogFile, VEC_ELLINETEMPLA
     {
         while(!file.eof())
         {
+            bool multilineJsonFound;
             getline(file, sLine);
+            multilineJsonFound=findMultilineJSON(sLine);
+            while(multilineJsonFound && !file.eof()){
+                getline(file,nextLine);
+                nextLine = std::regex_replace(nextLine, std::regex("^ +| +$|( ) +"), "$1");
+                sLine+=nextLine;
+                multilineJsonFound=findMultilineJSON(sLine);
+            }
             bool matchingLineFound = false;
             ELLineTemplate *matchingLineTemplate = NULL;
             ELNodeWrapperInfo info;
@@ -143,7 +194,35 @@ WIDESTRING ELInterpretter::ProcessBlocks(WIDESTRING str, VEC_ELBLOCKTEMPLATE& bl
         }
         mapBlocks[tmp->ch] = tmp;
     }
+
+//    while (true) {
+//        WIDESTRING strBeforeIteration = str;
+//        bool shouldConsiderSequenceBlocks = true;
+//        ite = definiteBlocks.begin();
+//        iteEnd = definiteBlocks.end();
+//        for ( ; ite != iteEnd; ++ite) {
+//            ELBlockTemplate *tmp = (*ite);
+//            if (tmp->IsReadyToProcess(availableSymbols)) {
+//                UnifyBlock(str, tmp, res);
+//                availableSymbols += tmp->ch;
+//                shouldConsiderSequenceBlocks = false;
+//            }
+//        }
+//
+//        if (shouldConsiderSequenceBlocks) {
+//            ite = nondefiniteBlocks.begin();
+//            iteEnd = nondefiniteBlocks.end();
+//            for ( ; ite != iteEnd; ++ite) {
+//                ELBlockTemplate *tmp = (*ite);
+//                if (tmp->IsReadyToProcess(availableSymbols)) {
+//                    UnifyBlock(str, tmp, res);
+//                    availableSymbols += tmp->ch;
+//                }
+//            }
+//        }
+
     while (true) {
+        //cout<<"Definite\n";
         WIDESTRING strBeforeIteration = str;
         ite = definiteBlocks.begin();
         iteEnd = definiteBlocks.end();
@@ -154,9 +233,9 @@ WIDESTRING ELInterpretter::ProcessBlocks(WIDESTRING str, VEC_ELBLOCKTEMPLATE& bl
                 availableSymbols += tmp->ch;
             }
         }
+        //cout<<"Non definite\n";
         ite = nondefiniteBlocks.begin();
         iteEnd = nondefiniteBlocks.end();
-
         for ( ; ite != iteEnd; ++ite) {
             ELBlockTemplate *tmp = (*ite);
             if (tmp->IsReadyToProcess(availableSymbols)) {
@@ -165,6 +244,7 @@ WIDESTRING ELInterpretter::ProcessBlocks(WIDESTRING str, VEC_ELBLOCKTEMPLATE& bl
                 VEC_ELBLOCKTEMPLATE::iterator ite3 = definiteBlocks.begin();
                 VEC_ELBLOCKTEMPLATE::iterator iteEnd3 = definiteBlocks.end();
                 for ( ; ite3 != iteEnd3; ++ite3) {
+                    //cout<<"For in for\n";
                     ELBlockTemplate *tmp3 = (*ite3);
                     if (tmp3->IsReadyToProcess(availableSymbols)) {
                         UnifyBlock(str, tmp3, res);
@@ -173,9 +253,10 @@ WIDESTRING ELInterpretter::ProcessBlocks(WIDESTRING str, VEC_ELBLOCKTEMPLATE& bl
                 }
             }
         }
+
         // If no changes occured in the string, that means we have reached the end of parsing
         if (str == strBeforeIteration) {
-            return  str;
+            return str;
         }
     }
 }
@@ -213,11 +294,9 @@ void ELInterpretter::UnifyBlock(WIDESTRING &str, ELBlockTemplate *block, ELInter
     WIDESTRING::size_type newpos;
     while (true) {
         WIDESTRING::size_type len = str.length();
-        cout<<str<<"\n";
         if (pos == len) {
             return;
         }
-
         if (block->TryUnify(str, pos, newpos)) {
             // alter the node structure accordingly
             unsigned long lenAlterPart = newpos - pos;
@@ -246,11 +325,14 @@ void ELInterpretter::UnifyBlock(WIDESTRING &str, ELBlockTemplate *block, ELInter
                 newNode->AppendNode(node);
                 node = temp;
             }
+            //newNode->SetRightSibling(node);
+            //node->SetLeftSibling(newNode);
             if(node!=NULL)
             {
                 newNode->SetRightSibling(node);
                 node->SetLeftSibling(newNode);
             }
+
             // alter the string
             WIDESTRING head = EMPTY_WIDESTRING;
             if (pos > 0) {
@@ -277,7 +359,6 @@ VEC_ELLINEANNOTATION* ELInterpretter::AnnotateAgainstLineTemplate(MSTRING sDefFi
     ELParserResult res;
     ELInterpretterResult *ir = 0;
     MemoryManager::Inst.CreateObject(&ir);
-    bool sequenceOnlyAtBeginning=false;
     p.ProcessScript(md->s_ScriptFile, md, res);
     ProcessLinesInFile(md->s_LogFile, res.vec_LineTemplates, ir);
 
