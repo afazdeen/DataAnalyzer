@@ -5,7 +5,7 @@
 #include "MetaData.h"
 
 using namespace std;
-
+// Michelle - executing "REMOVE_LINE_REPETITIONS" syntax
 void ELLogFileFilter::FilterLogFile()
 {
     MFSTREAM inputFile;
