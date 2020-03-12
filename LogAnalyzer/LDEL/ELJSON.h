@@ -1,7 +1,6 @@
-//
-// Created by AfazD on 10-Oct-19.
-//
-
+//  Created by Afaz
+//  Created by Afaz Deen on 10 October 2019
+//  Copyright (c) 2013 99x Technology. All rights reserved.
 #ifndef __LogAnalyzer__ELJSON__
 #define __LogAnalyzer__ELJSON__
 

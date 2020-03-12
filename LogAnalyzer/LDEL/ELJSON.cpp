@@ -2,7 +2,9 @@
 //  ELJSON.cpp
 //  LogAnalyzer
 //
-//  Created by Afaz Deen
+//  Created by Afaz
+//  Created by Afaz Deen on 10 October 2019
+//  Copyright (c) 2013 99x Technology. All rights reserved.
 //
 
 #include "ELJSON.h"

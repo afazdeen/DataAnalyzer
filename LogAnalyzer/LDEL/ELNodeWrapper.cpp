@@ -98,6 +98,9 @@ void ELNodeWrapper::PrintNodeToFile(MOFSTREAM &jsonfile,int count) {
 //                      file << _MSTR(});
 //}
 
+//Afaz Deen
+//Changed the print function such that it will output the nodes in json format consisting of nested json objects
+
 void ELNodeWrapper::PrintNodeToFile(MOFSTREAM &jsonfile, PNODE theNode, int tabCount, int count) {
     std::string str = std::to_string(count);
     MSTRING nodeName = theNode->GetCustomString();
@@ -146,6 +149,9 @@ void ELNodeWrapper::PrintNodeToFile(MOFSTREAM &jsonfile, PNODE theNode, int tabC
 //        file << _MSTR(\t);
 //    }
 //}
+
+//Afaz Deen
+//Function to add a new line to the json file
 
 void ELNodeWrapper::StartNewLine(MOFSTREAM &jsonfile, int tabCount) {
     jsonfile<<_MSTR(\n);
