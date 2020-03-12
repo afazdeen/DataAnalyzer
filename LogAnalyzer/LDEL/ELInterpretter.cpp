@@ -80,7 +80,7 @@ void ELInterpretter::PrintInterpretterResult(ELInterpretterResult *ir) {
     jsonfile.close();
     //file.close();
 }
-
+//Michelle - using the stack concept to check open parentheses matches with the closed parentheses
 bool ELInterpretter::findMultilineJSON(MSTRING sLine){
     MSTRING stack="";
     if(sLine.find("{")!=std::string::npos){
@@ -118,6 +118,7 @@ WIDESTRING ELInterpretter::ProcessLinesInFile(MSTRING sLogFile, VEC_ELLINETEMPLA
     {
         while(!file.eof())
         {
+            //Michelle - Checking Multiline JSON exists in the Log file
             bool multilineJsonFound;
             getline(file, sLine);
             multilineJsonFound=findMultilineJSON(sLine);

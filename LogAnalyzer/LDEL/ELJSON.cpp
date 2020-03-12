@@ -1,5 +1,5 @@
 //
-//  ELFloat.cpp
+//  ELJSON.cpp
 //  LogAnalyzer
 //
 //  Created by Afaz
@@ -22,10 +22,11 @@ ELJSON::~ELJSON() {
 
 }
 
+// Created the function by Michelle - Able to identify single line JSON objects in a log line - using a count for open and close curly braces determined the object's start and end point then using a JSON parser verified the object is indeed a JSON object.
 bool ELJSON:: EvaluateString (MSTRING& str, MSTRING::size_type startPos, MSTRING::size_type& newPos) {
     MSTRING::size_type pos = startPos;
     bool succ = false;
-    //MSTRING nums = "0123456789";
+
 
     int openParenthesisCount=0;
     int closeParenthesisCount=0;

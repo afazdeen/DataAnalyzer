@@ -88,6 +88,7 @@ void ELParser::ReadFileToLines(MSTRING sFile, MSTRING sLineContinuation, MSTRING
 			getline(file, sLine);
 			Utils::TrimLeft(sLine, _MSTR( \t));
 			Utils::TrimRight(sLine, _MSTR( \t));
+            // Michelle - Check whether in the script there exists "REMOVE_LINE_REPETITIONS" syntax
             if(sLine=="REMOVE_LINE_REPETITIONS")
             {
                 ELLogFileFilter::FilterLogFile();
