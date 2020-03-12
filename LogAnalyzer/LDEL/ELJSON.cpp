@@ -2,8 +2,9 @@
 //  ELFloat.cpp
 //  LogAnalyzer
 //
-//  Created by Dileepa Jayathilaka on 12/24/13.
-//  Copyright (c) 2013 99x Eurocenter. All rights reserved.
+//  Created by Afaz
+//  Created by Afaz Deen on 10 October 2019
+//  Copyright (c) 2013 99x Technology. All rights reserved.
 //
 
 #include "ELJSON.h"
