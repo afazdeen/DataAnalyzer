@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 99x Eurocenter. All rights reserved.
 //
 
+//Afaz Deen
+//Add symbols for text class
+
 #include "ELText.h"
 
 ELText::ELText ()

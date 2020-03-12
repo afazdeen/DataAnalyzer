@@ -41,6 +41,9 @@ bool ELSequenceVar::EvaluateString (MSTRING& str, MSTRING::size_type startPos, M
 }
 
 void ELSequenceVar::AddNodesForEvaluatedStrings(PNODE parent) {
+    //Afaz Deen
+    //Fix for sequence issue in Script
+
     ELNodeWrapperInfo info;
     info.type = ELNODE_TYPE_VARIABLE_SEQUENCE;
     info.name = name;

@@ -5,7 +5,8 @@
 //  Created by Afaz
 //  Created by Afaz Deen on 10 October 2019
 //  Copyright (c) 2013 99x Technology. All rights reserved.
-//
+
+// Created class to identify json objects in a log file
 
 #include "ELJSON.h"
 #include <iostream>
