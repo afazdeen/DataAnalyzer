@@ -38,19 +38,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\99xProjects\Project2 - Flat file Masking\Data-Extractor-Final\DataAnalyzer\LogAnalyzer"
+CMAKE_SOURCE_DIR = "D:\99x\final ldel\DataAnalyzer\LogAnalyzer"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\99xProjects\Project2 - Flat file Masking\Data-Extractor-Final\DataAnalyzer\LogAnalyzer\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\99x\final ldel\DataAnalyzer\LogAnalyzer\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = "D:\99xProjects\Project2 - Flat file Masking\Data-Extractor-F
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -69,7 +69,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2019.3.4\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\99xProjects\Project2 - Flat file Masking\Data-Extractor-Final\DataAnalyzer\LogAnalyzer\cmake-build-debug\CMakeFiles" "D:\99xProjects\Project2 - Flat file Masking\Data-Extractor-Final\DataAnalyzer\LogAnalyzer\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\99x\final ldel\DataAnalyzer\LogAnalyzer\cmake-build-debug\CMakeFiles" "D:\99x\final ldel\DataAnalyzer\LogAnalyzer\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\99xProjects\Project2 - Flat file Masking\Data-Extractor-Final\DataAnalyzer\LogAnalyzer\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\99x\final ldel\DataAnalyzer\LogAnalyzer\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -581,33 +581,6 @@ LDEL/ELInterpretter.cpp.s:
 	$(MAKE) -f CMakeFiles\LogAnalyzer.dir\build.make CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretter.cpp.s
 .PHONY : LDEL/ELInterpretter.cpp.s
 
-LDEL/ELInterpretterJSON.obj: LDEL/ELInterpretterJSON.cpp.obj
-
-.PHONY : LDEL/ELInterpretterJSON.obj
-
-# target to build an object file
-LDEL/ELInterpretterJSON.cpp.obj:
-	$(MAKE) -f CMakeFiles\LogAnalyzer.dir\build.make CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.obj
-.PHONY : LDEL/ELInterpretterJSON.cpp.obj
-
-LDEL/ELInterpretterJSON.i: LDEL/ELInterpretterJSON.cpp.i
-
-.PHONY : LDEL/ELInterpretterJSON.i
-
-# target to preprocess a source file
-LDEL/ELInterpretterJSON.cpp.i:
-	$(MAKE) -f CMakeFiles\LogAnalyzer.dir\build.make CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.i
-.PHONY : LDEL/ELInterpretterJSON.cpp.i
-
-LDEL/ELInterpretterJSON.s: LDEL/ELInterpretterJSON.cpp.s
-
-.PHONY : LDEL/ELInterpretterJSON.s
-
-# target to generate assembly for a file
-LDEL/ELInterpretterJSON.cpp.s:
-	$(MAKE) -f CMakeFiles\LogAnalyzer.dir\build.make CMakeFiles/LogAnalyzer.dir/LDEL/ELInterpretterJSON.cpp.s
-.PHONY : LDEL/ELInterpretterJSON.cpp.s
-
 LDEL/ELJSON.obj: LDEL/ELJSON.cpp.obj
 
 .PHONY : LDEL/ELJSON.obj
@@ -823,33 +796,6 @@ LDEL/ELNodeWrapper.s: LDEL/ELNodeWrapper.cpp.s
 LDEL/ELNodeWrapper.cpp.s:
 	$(MAKE) -f CMakeFiles\LogAnalyzer.dir\build.make CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapper.cpp.s
 .PHONY : LDEL/ELNodeWrapper.cpp.s
-
-LDEL/ELNodeWrapperJSON.obj: LDEL/ELNodeWrapperJSON.cpp.obj
-
-.PHONY : LDEL/ELNodeWrapperJSON.obj
-
-# target to build an object file
-LDEL/ELNodeWrapperJSON.cpp.obj:
-	$(MAKE) -f CMakeFiles\LogAnalyzer.dir\build.make CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.obj
-.PHONY : LDEL/ELNodeWrapperJSON.cpp.obj
-
-LDEL/ELNodeWrapperJSON.i: LDEL/ELNodeWrapperJSON.cpp.i
-
-.PHONY : LDEL/ELNodeWrapperJSON.i
-
-# target to preprocess a source file
-LDEL/ELNodeWrapperJSON.cpp.i:
-	$(MAKE) -f CMakeFiles\LogAnalyzer.dir\build.make CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.i
-.PHONY : LDEL/ELNodeWrapperJSON.cpp.i
-
-LDEL/ELNodeWrapperJSON.s: LDEL/ELNodeWrapperJSON.cpp.s
-
-.PHONY : LDEL/ELNodeWrapperJSON.s
-
-# target to generate assembly for a file
-LDEL/ELNodeWrapperJSON.cpp.s:
-	$(MAKE) -f CMakeFiles\LogAnalyzer.dir\build.make CMakeFiles/LogAnalyzer.dir/LDEL/ELNodeWrapperJSON.cpp.s
-.PHONY : LDEL/ELNodeWrapperJSON.cpp.s
 
 LDEL/ELNumber.obj: LDEL/ELNumber.cpp.obj
 
@@ -1424,9 +1370,6 @@ help:
 	@echo ... LDEL/ELInterpretter.obj
 	@echo ... LDEL/ELInterpretter.i
 	@echo ... LDEL/ELInterpretter.s
-	@echo ... LDEL/ELInterpretterJSON.obj
-	@echo ... LDEL/ELInterpretterJSON.i
-	@echo ... LDEL/ELInterpretterJSON.s
 	@echo ... LDEL/ELJSON.obj
 	@echo ... LDEL/ELJSON.i
 	@echo ... LDEL/ELJSON.s
@@ -1451,9 +1394,6 @@ help:
 	@echo ... LDEL/ELNodeWrapper.obj
 	@echo ... LDEL/ELNodeWrapper.i
 	@echo ... LDEL/ELNodeWrapper.s
-	@echo ... LDEL/ELNodeWrapperJSON.obj
-	@echo ... LDEL/ELNodeWrapperJSON.i
-	@echo ... LDEL/ELNodeWrapperJSON.s
 	@echo ... LDEL/ELNumber.obj
 	@echo ... LDEL/ELNumber.i
 	@echo ... LDEL/ELNumber.s

@@ -7,89 +7,88 @@
 #include "Node.h"
 #include "MemMan.h"
 #include "ELInterpretter.h"
-#include "ELInterpretterJSON.h"
 #include <iostream>
 
 using namespace std;
 
 void Tests::RunTest1()
 {
-	DefFileReader dfr;
-	MetaData* pMD = dfr.Read("../tests/test1/Defs.txt");
-	ScriptReader sr;
-	ScriptReaderOutput op;
-	bool bSucc = sr.ProcessScript(pMD->s_RuleFileName, pMD, op);
-	if(!bSucc)
-	{
-		std::wcout<<"\nFailed to read script\n";
-	}
-	ExecutionContext ec;
-	ec.p_mapFunctions = &op.map_Functions;
-	ec.p_MD = pMD;
-	Node* pX = MemoryManager::Inst.CreateNode(1);
-	Node* pY = MemoryManager::Inst.CreateNode(2);
-	ec.map_Var["X"] = pX;
-	ec.map_Var["Y"] = pY;
-	op.p_ETL->Execute(&ec);
+    DefFileReader dfr;
+    MetaData* pMD = dfr.Read("../tests/test1/Defs.txt");
+    ScriptReader sr;
+    ScriptReaderOutput op;
+    bool bSucc = sr.ProcessScript(pMD->s_RuleFileName, pMD, op);
+    if(!bSucc)
+    {
+        std::wcout<<"\nFailed to read script\n";
+    }
+    ExecutionContext ec;
+    ec.p_mapFunctions = &op.map_Functions;
+    ec.p_MD = pMD;
+    Node* pX = MemoryManager::Inst.CreateNode(1);
+    Node* pY = MemoryManager::Inst.CreateNode(2);
+    ec.map_Var["X"] = pX;
+    ec.map_Var["Y"] = pY;
+    op.p_ETL->Execute(&ec);
 }
 
 void Tests::RunTest2()
 {
-	DefFileReader dfr;
-	MetaData* pMD = dfr.Read("../tests/test3/Defs.txt");
-	ScriptReader sr;
-	ScriptReaderOutput op;
-	bool bSucc = sr.ProcessScript(pMD->s_RuleFileName, pMD, op);
-	if(!bSucc)
-	{
-		std::wcout<<"\nFailed to read script\n";
-	}
-	ExecutionContext ec;
-	ec.p_mapFunctions = &op.map_Functions;
-	ec.p_MD = pMD;
-	Node* pX = MemoryManager::Inst.CreateNode(1);
-	Node* pY = MemoryManager::Inst.CreateNode(2);
-	Node* pZ = MemoryManager::Inst.CreateNode(3);
-	ec.map_Var["X"] = pX;
-	ec.map_Var["Y"] = pY;
-	ec.map_Var["Z"] = pZ;
-	op.p_ETL->Execute(&ec);
-	pX->DestroyWithSubTree();
-	pY->DestroyWithSubTree();
-	pZ->DestroyWithSubTree();
-	op.p_ETL->Destroy();
+    DefFileReader dfr;
+    MetaData* pMD = dfr.Read("../tests/test3/Defs.txt");
+    ScriptReader sr;
+    ScriptReaderOutput op;
+    bool bSucc = sr.ProcessScript(pMD->s_RuleFileName, pMD, op);
+    if(!bSucc)
+    {
+        std::wcout<<"\nFailed to read script\n";
+    }
+    ExecutionContext ec;
+    ec.p_mapFunctions = &op.map_Functions;
+    ec.p_MD = pMD;
+    Node* pX = MemoryManager::Inst.CreateNode(1);
+    Node* pY = MemoryManager::Inst.CreateNode(2);
+    Node* pZ = MemoryManager::Inst.CreateNode(3);
+    ec.map_Var["X"] = pX;
+    ec.map_Var["Y"] = pY;
+    ec.map_Var["Z"] = pZ;
+    op.p_ETL->Execute(&ec);
+    pX->DestroyWithSubTree();
+    pY->DestroyWithSubTree();
+    pZ->DestroyWithSubTree();
+    op.p_ETL->Destroy();
 }
 
 void Tests::RunTest3()
 {
-	DefFileReader dfr;
-	MetaData* pMD = dfr.Read("../tests/test3/Defs.txt");
-	ScriptReader sr;
-	ScriptReaderOutput op;
-	bool bSucc = sr.ProcessScript(pMD->s_RuleFileName, pMD, op);
-	if(!bSucc)
-	{
-		std::wcout<<"\nFailed to read script\n";
-	}
-	ExecutionContext ec;
-	ec.p_mapFunctions = &op.map_Functions;
-	ec.p_MD = pMD;
-	Node* pX = MemoryManager::Inst.CreateNode(1);
-	Node* pY = MemoryManager::Inst.CreateNode(2);
-	Node* pZ = MemoryManager::Inst.CreateNode(3);
-	ec.map_Var["X"] = pX;
-	ec.map_Var["Y"] = pY;
-	ec.map_Var["Z"] = pZ;
-	op.p_ETL->Execute(&ec);
-	pX->DestroyWithSubTree();
-	pY->DestroyWithSubTree();
-	pZ->DestroyWithSubTree();
+    DefFileReader dfr;
+    MetaData* pMD = dfr.Read("../tests/test3/Defs.txt");
+    ScriptReader sr;
+    ScriptReaderOutput op;
+    bool bSucc = sr.ProcessScript(pMD->s_RuleFileName, pMD, op);
+    if(!bSucc)
+    {
+        std::wcout<<"\nFailed to read script\n";
+    }
+    ExecutionContext ec;
+    ec.p_mapFunctions = &op.map_Functions;
+    ec.p_MD = pMD;
+    Node* pX = MemoryManager::Inst.CreateNode(1);
+    Node* pY = MemoryManager::Inst.CreateNode(2);
+    Node* pZ = MemoryManager::Inst.CreateNode(3);
+    ec.map_Var["X"] = pX;
+    ec.map_Var["Y"] = pY;
+    ec.map_Var["Z"] = pZ;
+    op.p_ETL->Execute(&ec);
+    pX->DestroyWithSubTree();
+    pY->DestroyWithSubTree();
+    pZ->DestroyWithSubTree();
 //	op.p_ETL->Destroy();
 }
 
 void Tests::RunLDELtest1() {
-    /*MSTRING stringFlag;
-    cout<<"Enter the type of file you want to generate the result in"<<std::endl;
+    MSTRING stringFlag;
+    /*cout<<"Enter the type of file you want to generate the result in"<<std::endl;
     cout<<"(Enter \"txt\" for text file or \"json\" for json file) :\t";
     cin>>stringFlag;
 
@@ -97,26 +96,28 @@ void Tests::RunLDELtest1() {
         c = ::tolower(c);
     });
 
-    //Enter the path to the log file and the script file in the Defs.txt file under the fields LDEL_LOG_FILE and LDEL_SCRIPT_FILE respectively.
-
     if(stringFlag =="txt")
     {
         ELInterpretter intp;
-        intp.EvaluateCase("../tests/LDEL_test1/logdata/Defs.txt");
+        intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
     }
    else if(stringFlag =="json")
     {
         ELInterpretterJSON intp;
-        intp.EvaluateCase("../tests/LDEL_test1/logdata/Defs.txt");
+        intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
     }
    else
     {
         cout<<"Invalid file type"<<std::endl;
         exit(1);
     }*/
+//
+//    ELInterpretterJSON intp;
+//    intp.EvaluateCase("../tests/LDEL_test1/Defs.txt");
 
-    ELInterpretterJSON intp;
-    intp.EvaluateCase("../../Files/Defs.txt");
+    ELInterpretter intp;
+    intp.EvaluateCase("../tests/LDEL_test1/logdata/Defs.txt");
+
 }
 
 void Tests::RunLDELtest2() {
